@@ -1,0 +1,9 @@
+@import './themes/claude.css';
+
+:root {
+  --header-height: 4rem;
+}
+
+[data-theme='claude'] body {
+  font-family: var(--font-sans);
+}
