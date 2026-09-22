@@ -17,12 +17,12 @@
 
 | Check | Command | Result |
 | --- | --- | --- |
-| Install | `bun install --frozen-lockfile` | Pass |
-| TypeScript | `bun run typecheck` | Pass |
-| Lint | `bun run lint:strict` | Pass |
-| Production build | `bun run build` | Pass |
+| Install | `npm install` | Pass |
+| TypeScript | `npm run typecheck` | Pass |
+| Lint | `npm run lint:strict` | Pass |
+| Production build | `npm run build` | Pass |
 
-以上命令在本提交目录中使用 Bun 1.4.2 实际执行。生产构建使用 Next.js 16.3.5，编译、TypeScript 检查和页面数据收集均成功，生成 15 个静态页面。
+以上命令在本提交目录中使用 Node.js 22 与 npm 10.9.2 实际执行。生产构建使用 Next.js 16.3.5，编译、TypeScript 检查和页面数据收集均成功，生成 15 个静态页面。
 
 ## Functional Verification
 
