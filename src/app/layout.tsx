@@ -1,6 +1,4 @@
 import '@/styles/globals.css';
-import { fontVariables } from '@/components/themes/font.config';
-import { cn } from '@/lib/utils';
 import type { Metadata, Viewport } from 'next';
 import { ThemeProvider } from 'next-themes';
 
@@ -22,7 +20,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang='zh-CN' suppressHydrationWarning data-theme='claude'>
-      <body className={cn('min-h-screen bg-background font-sans antialiased', fontVariables)}>
+      <body className='min-h-screen bg-background font-sans antialiased'>
         <ThemeProvider attribute='class' defaultTheme='light' enableSystem={false}>
           {children}
         </ThemeProvider>

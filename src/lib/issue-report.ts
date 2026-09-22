@@ -143,18 +143,16 @@ export function buildIssueReport(
     };
   });
   const priorityWeight = { P0: 16, P1: 10, P2: 4, P3: 0 };
+  const score = (row: IssueReportRow) =>
+    row.currentCases.length * 4 +
+    Math.max(0, row.comparison.percent ?? 120) / 20 +
+    priorityWeight[row.issue.priority] +
+    (row.issue.issueStatus === 'Blocked' ? 12 : 0) +
+    (row.issue.possibleRegression ? 12 : 0) +
+    (issueAge(row.issue, criteria.end) > 14 ? 6 : 0);
   const coreIssues = issueRows
     .filter((row) => row.currentCases.length > 0)
-    .toSorted((a, b) => {
-      const score = (row: IssueReportRow) =>
-        row.currentCases.length * 4 +
-        Math.max(0, row.comparison.percent ?? 120) / 20 +
-        priorityWeight[row.issue.priority] +
-        (row.issue.issueStatus === 'Blocked' ? 12 : 0) +
-        (row.issue.possibleRegression ? 12 : 0) +
-        (issueAge(row.issue, criteria.end) > 14 ? 6 : 0);
-      return score(b) - score(a);
-    })
+    .toSorted((a, b) => score(b) - score(a))
     .slice(0, criteria.topCount);
 
   const newIssues = issueRows.filter((row) =>

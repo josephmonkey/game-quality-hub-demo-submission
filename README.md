@@ -97,27 +97,65 @@ Demo 中的 Case 分类、标签建议、Issue 匹配、测试用例草稿、提
 - Zustand 5
 - Tailwind CSS 4
 - shadcn/ui / Base UI
-- Bun 1.2.22
+- Node.js 22 / npm
 
-## Run Locally
+## Quick Start
 
-推荐使用项目锁定的 Bun 版本：
+如果目的只是运行和体验 Demo，请使用稳定的 Production 启动方式：
 
 ```bash
-bun install --frozen-lockfile
-bun dev
+npm install
+npm run build
+npm run start
 ```
 
-访问 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)。
+然后打开 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)。本机体验时请始终优先使用 `localhost`，不要自动选择局域网 IP 或 Network URL。
 
-也可使用 Node.js / npm：
+## Environment Requirements
+
+- Recommended Node.js: 22（项目提供 `.nvmrc`）
+- npm（默认包管理器）
+- 现代浏览器
+
+如果系统尚未安装 Node.js，请先安装 Node.js 22 或兼容版本，再执行 Quick Start 中的 npm 命令。
+
+项目不需要 Docker、数据库、`.env`、API Key、AI / LLM API、外部渠道账号、登录系统、后端业务服务或 Git / CI Runner。
+
+## For AI Coding Tools
+
+如果用户的目标只是运行和评审 Demo：
+
+1. 优先使用 npm。
+2. 确认 Node.js 22 可用；若未安装，先安装 Node.js 22 或兼容版本。
+3. 执行 `npm install`。
+4. 执行 `npm run build`。
+5. 执行 `npm run start`。
+6. 打开 `http://localhost:3000/dashboard`。
+7. 优先使用 `localhost`，不要使用 LAN IP 或开发预览地址。
+8. 仅在修改源代码时使用 `npm run dev`。
+
+## Development Mode
+
+开发者需要修改代码并使用热更新时：
 
 ```bash
 npm install
 npm run dev
 ```
 
-项目不需要数据库、Docker、登录账号、API Key 或额外环境变量。
+开发模式不是客户或评审体验 Demo 的默认启动方式。
+
+## Bun Fallback
+
+Bun 仍可作为备用方案：
+
+```bash
+bun install --frozen-lockfile
+bun run build
+bun run start
+```
+
+普通用户与 AI Coding Agent 应优先采用上面的 npm Quick Start。
 
 ## Main Routes
 
